@@ -2,9 +2,10 @@
 
 namespace App\Filament\Resources\CollegeResource\Pages;
 
-use App\Filament\Resources\CollegeResource;
 use Filament\Actions;
+use App\Models\College;
 use Filament\Resources\Pages\ListRecords;
+use App\Filament\Resources\CollegeResource;
 
 class ListColleges extends ListRecords
 {
@@ -12,8 +13,14 @@ class ListColleges extends ListRecords
 
     protected function getHeaderActions(): array
     {
-        return [
-            Actions\CreateAction::make(),
-        ];
+
+
+        if(College::count() == 0) {
+            return [
+                Actions\CreateAction::make(),
+            ];
+        } else {
+            return [];
+        }
     }
 }

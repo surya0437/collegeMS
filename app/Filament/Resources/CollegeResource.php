@@ -17,7 +17,11 @@ class CollegeResource extends Resource
 {
     protected static ?string $model = College::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-academic-cap';
+    protected static ?string $navigationLabel = 'College';
+    protected static ?string $navigationGroup = 'Settings';
+    protected static ?string $modelLabel = 'College';
+    protected static ?string $pluralModelLabel = 'College';
 
     public static function form(Form $form): Form
     {
@@ -54,7 +58,7 @@ class CollegeResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('email')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('logo')
+                Tables\Columns\ImageColumn::make('logo')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
